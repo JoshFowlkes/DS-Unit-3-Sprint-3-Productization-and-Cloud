@@ -24,7 +24,7 @@ def make_list(list1, list2):
 # getting list of tuples of datetimes and values
 def get_datetimeValues(city, parameter):
     api = openaq.OpenAQ()
-    status, body = api.measurements(city=city, parameter=parameter)
+    status, body = api.measurements(id=id, city=city, parameter=parameter)
     if status == 200:
         utc_datetimes = [result['date']['utc'] for result in body['results']]
         values = [result['value'] for result in body['results']]
