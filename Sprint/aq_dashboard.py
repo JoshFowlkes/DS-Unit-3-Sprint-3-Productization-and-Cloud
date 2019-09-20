@@ -45,13 +45,13 @@ def refresh():
     DB.drop_all()
     DB.create_all()
     # TODO Get data from OpenAQ, make Record objects with it, and add to db
-    for time_value in get_datetimeValues('Los Angeles', 'pm25'):
-        record = Record(datetime=str(time_value[0]), value=time_value[1])
+    for datetimeValue in get_datetimeValues('Los Angeles', 'pm25'):
+        record = Record(datetime=str(datetimeValue[0]), value=datetimeValue[1])
         DB.session.add(record)
     DB.session.commit()
-    return 'Data refreshed!'
+    return 'Data Refreshed!'
 
 
-
+ 
 if __name__ == '__main__':
     APP.run(debug=True)    
