@@ -31,14 +31,14 @@ def get_datetimeValues(city, parameter):
         tuple_list = make_list(utc_datetimes, values)
     return tuple_list
        
-
+# setting the home page
 @APP.route('/')
 def base():
     records = Record.query.filter(Record.value>=10).all()
     return render_template('base.html', records=records)    
 
 
-
+# setting the refresh page
 @APP.route('/refresh')
 def refresh():
     """Pull fresh data from Open AQ and replace existing data."""
